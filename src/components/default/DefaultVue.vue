@@ -1,13 +1,18 @@
 <template>
   <form>
-    <BaseSelect
-      :options="categories"
-      v-model="event.category"
-      label="Select a category"
-    />
-    <BaseCheckbox v-model="event.extras.catering" label="Catering" />
-
-    <BaseInput v-model="event.title" label="Title" type="text" />
+    <div>
+      <BaseSelect
+        :options="categories"
+        v-model="event.category"
+        label="Select a category"
+      />
+    </div>
+    <div>
+      <BaseCheckbox v-model="event.extras.catering" label="Catering" />
+    </div>
+    <div>
+      <BaseInput v-model="event.title" label="Title" type="text" />
+    </div>
     <div>
       <BaseRadio
         v-model="event.pets"
@@ -25,6 +30,9 @@
         name="pets"
         buttons
       />
+    </div>
+    <div>
+      <BaseRadioGroup v-model="event.pets" name="pets" :options="petOptions" />
     </div>
   </form>
 </template>
