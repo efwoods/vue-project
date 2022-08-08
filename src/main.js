@@ -11,7 +11,7 @@ const requireComponent = require.context(
 
 const app = createApp(App)
 
-requireComponent.keys().forEach(fileName => {
+requireComponent.keys().forEach((fileName) => {
   const componentConfig = requireComponent(fileName)
 
   const componentName = upperFirst(
