@@ -10,23 +10,21 @@
     <div>
       <BaseCheckbox v-model="event.extras.catering" label="Catering" />
     </div>
+    <BaseRadio
+      v-model="event.radio"
+      :value="0"
+      label="Radio Toggle Button"
+      name="unique"
+    />
     <div>
       <BaseInput v-model="event.title" label="Title" type="text" />
     </div>
 
     <BaseRadioGroup
       v-model="event.pets"
-      :vertical="true"
+      :vertical="false"
       name="pets"
       :options="petOptions"
-    />
-
-    <BaseRadio
-      v-model="event.radio"
-      :value="0"
-      label="Radio Toggle Button"
-      name="unique"
-      buttons
     />
   </form>
 </template>
