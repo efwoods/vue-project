@@ -1,38 +1,64 @@
 <template>
-  <form>
-    <div>
+  <div>
+    <h1>Create an event</h1>
+    <form @submit.prevent="sendForm">
       <BaseSelect
         :options="categories"
         v-model="event.category"
         label="Select a category"
       />
-    </div>
-    <div>
-      <BaseCheckbox v-model="event.extras.catering" label="Catering" />
-    </div>
-    <BaseRadio
-      v-model="event.radio"
-      :value="0"
-      label="Radio Toggle Button"
-      name="unique"
-    />
-    <div>
-      <BaseInput v-model="event.title" label="Title" type="text" />
-    </div>
+      <fieldset>
+        <legend>Name & describe your event</legend>
 
-    <BaseRadioGroup
-      v-model="event.pets"
-      :vertical="false"
-      name="pets"
-      :options="petOptions"
-    />
-  </form>
+        <BaseInput v-model="event.title" label="Title" type="text" error="" />
+        <BaseInput
+          v-model="event.description"
+          label="Description"
+          type="text"
+          error=""
+        />
+      </fieldset>
+      <fieldset>
+        <legend>Where is your event?</legend>
+        <BaseInput v-model="event.location" label="Location" type="text" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Pets</legend>
+        <p>Are Pets Allowed?</p>
+        <BaseRadioGroup
+          v-model="event.pets"
+          :vertical="false"
+          name="pets"
+          :options="petOptions"
+        />
+      </fieldset>
+
+      <fieldset>
+        <legend>Extras</legend>
+        <div>
+          <BaseCheckbox v-model="event.extras.catering" label="Catering" />
+        </div>
+        <div>
+          <BaseRadio
+            v-model="event.radio"
+            :value="0"
+            label="Radio Toggle Button"
+            name="unique"
+          />
+        </div>
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </template>
 
 <script>
 import BaseInput from './BaseInput.vue'
 import BaseCheckbox from './BaseCheckbox.vue'
 import BaseRadio from './BaseRadio.vue'
+import DefaultService from '@/services/DefaultService'
 
 export default {
   name: 'DefaultVue',
@@ -72,8 +98,26 @@ export default {
     }
   },
   props: {},
-  methods: {},
+  methods: {
+    sendForm(e) {
+      DefaultService.sendForm(e)
+      // best practice will be to validate submission in the service before sending
+      // even if the receiving server also has form validation
+    },
+  },
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+</style>
