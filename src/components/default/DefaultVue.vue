@@ -13,27 +13,21 @@
     <div>
       <BaseInput v-model="event.title" label="Title" type="text" />
     </div>
-    <div>
-      <BaseRadio
-        v-model="event.pets"
-        :value="1"
-        label="Yes"
-        name="pets"
-        buttons
-      />
-    </div>
-    <div>
-      <BaseRadio
-        v-model="event.pets"
-        :value="0"
-        label="No"
-        name="pets"
-        buttons
-      />
-    </div>
-    <div>
-      <BaseRadioGroup v-model="event.pets" name="pets" :options="petOptions" />
-    </div>
+
+    <BaseRadioGroup
+      v-model="event.pets"
+      :vertical="true"
+      name="pets"
+      :options="petOptions"
+    />
+
+    <BaseRadio
+      v-model="event.radio"
+      :value="0"
+      label="Radio Toggle Button"
+      name="unique"
+      buttons
+    />
   </form>
 </template>
 
@@ -67,11 +61,16 @@ export default {
         description: '',
         location: '',
         pets: 1,
+        radio: 1,
         extras: {
           catering: false,
           music: false,
         },
       },
+      petOptions: [
+        { label: 'Yes', value: 1 },
+        { label: 'No', value: 0 },
+      ],
     }
   },
   props: {},
