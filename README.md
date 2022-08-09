@@ -22,3 +22,15 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Reusable Components
+
+- BaseCheckbox
+- BaseInput
+- BaseRadio
+- BaseRadioGroup
+- BaseSelect
+- DefaultVue
+- DefaultService
+- Auto-Import-Compnents
+- VS Code Lint/Prettier Configurations
