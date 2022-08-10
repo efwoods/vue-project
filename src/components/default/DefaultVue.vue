@@ -49,7 +49,7 @@
         </div>
       </fieldset>
 
-      <button type="submit">Submit</button>
+      <BaseButton type="submit" class="-fill-gradient">Submit</BaseButton>
     </form>
   </div>
 </template>
@@ -59,6 +59,7 @@ import BaseInput from './BaseInput.vue'
 import BaseCheckbox from './BaseCheckbox.vue'
 import BaseRadio from './BaseRadio.vue'
 import DefaultService from '@/services/DefaultService'
+import BaseButton from './BaseButton.vue'
 
 export default {
   name: 'DefaultVue',
@@ -66,6 +67,7 @@ export default {
     BaseCheckbox,
     BaseInput,
     BaseRadio,
+    BaseButton,
   },
   created() {},
   data() {

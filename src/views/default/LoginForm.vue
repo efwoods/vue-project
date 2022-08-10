@@ -16,7 +16,7 @@ export default {
     function onSubmit() {
       alert('Submitted')
     }
-    const email = useField('email', function (value) {
+    const { value, errorMessage } = useField('email', function (value) {
       if (!value) return 'This field is required'
       const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -28,8 +28,8 @@ export default {
 
     return {
       onSubmit,
-      email: email.value,
-      emailError: email.errorMessage,
+      email: value,
+      emailError: errorMessage,
     }
   },
   created() {},
