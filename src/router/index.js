@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import App from '@/App.vue'
 import LoginForm from '@/views/default/LoginForm.vue'
-// import EventList from '../views/EventList.vue'
-// import EventDetails from '../views/EventDetails.vue'
-// import About from '../views/About.vue'
+import DefaultVue from '@/views/default/DefaultVue.vue'
+import HelloWorld from '@/views/default/HelloWorld.vue'
 
 const routes = [
   {
@@ -12,21 +11,21 @@ const routes = [
     component: App,
   },
   {
+    path: '/default',
+    name: 'DefaultVue',
+    component: DefaultVue,
+  },
+  {
     path: '/login',
     name: 'LoginForm',
     component: LoginForm,
   },
-  //   {
-  //     path: '/event/:id',
-  //     name: 'EventDetails',
-  //     props: true,
-  //     component: EventDetails
-  //   },
-  //   {
-  //     path: '/about',
-  //     name: 'About',
-  //     component: About
-  //   }
+  {
+    path: '/helloworld',
+    name: 'HelloWorld',
+    component: HelloWorld,
+    props: { msg: 'Welcome to Your Vue.js App' },
+  },
 ]
 
 const router = createRouter({
